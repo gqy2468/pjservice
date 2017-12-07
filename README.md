@@ -1,2 +1,2 @@
 # pjservice
-基于zookeeper+thrift的跨语言rpc框架
+这是一款基于zookeeper+thrift的跨语言高可用rpc框架，其中phprpc的大部分代码是复用dubbo的，只是做了一些适合原生thrift协议的改动，而phpsrv是提供基于java语言的thrift服务的示例代码，而phpcas是java调用基于php语言的thrift服务的service代码！
