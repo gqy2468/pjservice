@@ -1,0 +1,5 @@
+filter=com.lvmama.phprpc.rpc.protocol.ProtocolFilterWrapper
+listener=com.lvmama.phprpc.rpc.protocol.ProtocolListenerWrapper
+mock=com.lvmama.phprpc.rpc.support.MockProtocol
+thrift=com.lvmama.phprpc.rpc.protocol.ThriftProtocol
+registry=com.lvmama.phprpc.registry.integration.RegistryProtocol

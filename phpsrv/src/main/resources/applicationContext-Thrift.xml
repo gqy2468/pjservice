@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:phprpc="http://www.lvmama.com/schema/phprpc"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+        	http://www.springframework.org/schema/beans/spring-beans.xsd
+        	http://www.lvmama.com/schema/phprpc
+        	http://www.lvmama.com/schema/phprpc/phprpc.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:dubbo.properties" />
+
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<phprpc:registry address="zookeeper://${zookeeper.address}" />
+	
+	<!-- 使用zookeeper注册中心注册监控服务 -->
+	<phprpc:monitor protocol="registry" />
+
+	<!-- 用thrift协议在8090端口暴露服务 -->
+	<phprpc:protocol name="thrift" port="${zookeeper.thrift.port}" />
+
+	<!-- 声明需要暴露的服务接口 -->
+	<phprpc:service interface="com.lvmama.phprpc.monitor.MonitorService$Iface" ref="monitorService"></phprpc:service>
+	<phprpc:service interface="com.lvmama.phpsrv.Service.UserService$Iface" ref="userService"></phprpc:service>
+
+	<!-- 具体的实现bean -->
+	<bean id="monitorService" class="com.lvmama.phpsrv.controller.MonitorController" />
+	<bean id="userService" class="com.lvmama.phpsrv.controller.UserController" />
+
+</beans>

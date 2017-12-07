@@ -1,0 +1,2 @@
+zkclient=com.lvmama.phprpc.remoting.zookeeper.zkclient.ZkclientZookeeperTransporter
+curator=com.lvmama.phprpc.remoting.zookeeper.curator.CuratorZookeeperTransporter

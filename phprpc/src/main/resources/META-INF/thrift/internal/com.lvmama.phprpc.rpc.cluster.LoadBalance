@@ -1,0 +1,1 @@
+random=com.lvmama.phprpc.rpc.cluster.loadbalance.RandomLoadBalance

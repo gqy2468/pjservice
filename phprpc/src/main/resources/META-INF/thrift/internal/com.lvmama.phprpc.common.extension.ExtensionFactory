@@ -1,0 +1,2 @@
+adaptive=com.lvmama.phprpc.common.extension.factory.AdaptiveExtensionFactory
+spi=com.lvmama.phprpc.common.extension.factory.SpiExtensionFactory
